@@ -43,3 +43,5 @@ let comparator = function (word1, word2) {
   return true
 };
 console.log(comparator("argentina", "rageanitn"))
+console.log(comparator("juventus","inter"))
+console.log(comparator("milanesa","milanesa"))
