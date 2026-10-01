@@ -21,3 +21,28 @@ let printer = function () {
   }
 };
 printer();
+
+/* Arriba esta mi codigo de practica, y abajo esta la solucion planteada por brais que plantea
+el ejercicio. Se puede diferenciar el lenguaje, javascript arriba y kotlin abajo
+la diferencia que aprendi luego de ver su codigo despues de hacer el mio
+es la buena practica de crear las 3 funciones con la logica y luego aplicarla, 
+dentro de los condicionales, a diferencia mia que la aplique direcamente cuando la declare
+lo que hizo el, permite llamarla cuantas veces sea necesario en el futuro
+
+fun main() {
+
+    for (index in 1..100) {
+        val divisibleByThree = index % 3 == 0
+        val divisibleByFive = index % 5 == 0
+        if (divisibleByThree && divisibleByFive) {
+            println("fizzbuzz")
+        } else if (divisibleByThree) {
+            println("fizz")
+        } else if (divisibleByFive) {
+            println("buzz")
+        } else {
+            println(index)
+        }
+    }
+}
+*/

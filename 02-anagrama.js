@@ -45,3 +45,23 @@ let comparator = function (word1, word2) {
 console.log(comparator("argentina", "rageanitn"))
 console.log(comparator("juventus","inter"))
 console.log(comparator("milanesa","milanesa"))
+
+
+/*
+agrego comparacion de mi codigo y la solucion de brais que es quien plantea el problema
+se puede ver la diferencia de lenguaje el mio es javascript, el suyo kotlin
+de aqui puedo sacar 
+
+
+fun main() {
+    println(isAnagram("amor", "roma"))
+}
+
+private fun isAnagram(wordOne: String, wordTwo: String): Boolean {
+    if (wordOne.lowercase() == wordTwo.lowercase()) {
+        return false
+    }
+    return wordOne.lowercase().toCharArray().sortedArray().contentEquals(wordTwo.lowercase().toCharArray().sortedArray())
+}
+
+*/
