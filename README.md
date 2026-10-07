@@ -26,3 +26,9 @@ Dejo explicacion breve de cada ejercicio, lo aplicado y lo aprendido en el.
    -Metodo: una funcion, que alberga una regex que filtra los signos, con un objeto contenedor para cuantificar las palabras, un toLowerCase para que las palabras sean iguales sin discriminar mayusculas/minusculas. El split como separador de cada palabra, y el for each para recorrer el texto. Se aplica un condicional para sumar cada palabra, y en caso de no existir, crear una nueva, y se retorna el resultado. Luego se llama a la funcion pasandole como parametro el texto a procesar. Se agrega tambien un testing.
 
 3. DecimalToBinary #09
+-Objetivo: Llevar numeros decimales a codigo binario
+-Metodo: se aplico una funcion, con 2 contenedores, uno que acumule los resultados, y uno que maneje el numero e y sus modificaciones. Se aplican 2 filtros, para el 0, para los datos que no sean numeros enteros, y un bucle para que mientras el numero sea mayor que 0, se cargue en una variable tempora, el resultado del modulo del numero convertido, acumulandolo en una variable espejo, para que el orden quede invertido, y en la siguiente linea se aplique el math.floor que aplanara a un numero entero, el resultado de la division (/2) en caso de que de un resto con (.5, ej 13/2 = 6.5 pasa a 6)luego se retorna el resultado y se llama a la funcion. Se le aplico tambien un testing
+
+4. morse-code #10
+-Objetivo: crear un traductor que reciba texto comun y lo transforme a codigo morse, y vice-versa
+-Metodo: La logica esta terminada y funcionando, pero tiene un fallo en que el filtro podria tomar textos regulares que contengan '.' o '-' como codigo morse, por lo cual el codigo quedara pendiente a modificaciones y tambien este readme
