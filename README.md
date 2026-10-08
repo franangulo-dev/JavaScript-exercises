@@ -32,3 +32,8 @@ Dejo explicacion breve de cada ejercicio, lo aplicado y lo aprendido en el.
 4. morse-code #10
 -Objetivo: crear un traductor que reciba texto comun y lo transforme a codigo morse, y vice-versa
 -Metodo: La logica esta terminada y funcionando, pero tiene un fallo en que el filtro podria tomar textos regulares que contengan '.' o '-' como codigo morse, por lo cual el codigo quedara pendiente a modificaciones y tambien este readme
+
+5. balanced-expresions #11
+-Objetivo: Crear un programa que detecte si la apertura y el cierre dentro de una expresion estan equilibrados ej: () {} o [] en orden
+-Metodo: Se creo una funcion, con parametro la expresion a analizar. Que a traves de un array contenedor, que almacenara nuestros abridores `( { o [`. El primer condicional filtra expresiones vacias, luego un bucle recorre la expresion metiendo los abridores dentro del conenedor en el ult indice con .push, el segundo condicional recibira los cierres `] } o )` y los comparara con los abridores, usando una constante que los recogera para luego borrarlos usando .pop, si el valor de cierre NO coincide con el abridor, devuelve falso. por ultimo fuera de estos condicionales filtramos el length del contenedor el cual deberia ser 0 si el proceso se completo correctamente o false si quedo algun abridor pendiente, eso nos dara el resultado true o false cuando pasemos la expresion.
+-Metodo 2: se utilizo un segundo metodo procesando los datos de un objeto con clave y valor usando la misma tecnica de comparacion, con valor2 para recorrer y comparar valores y claves
