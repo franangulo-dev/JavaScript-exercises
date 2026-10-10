@@ -54,3 +54,9 @@ Dejo explicacion breve de cada ejercicio, lo aplicado y lo aprendido en el.
    Se crea una constante que limpia el texto de: diferenciar mayusculas, de signos sobre las letras utilizando normalize(NFD) y el replace para lo que resulte, luego Replace para "," "." y espacios vacios.
    Una vez el texto este limpio, se guarda en una constante contenedora, usando un spread de la constante trabajada, se invierte el orden de los caracteres individuales, y se juntan con join en un string.
    Para luego compararse en el return y en caso de ser iguales conseguir el true y de ser distintos false. Llamamos a 2 ejemplos y tambien aplicamos un jest.
+
+8. recursive-factorial #14
+   -Objetivo: Encontrar el factorial de un numero usando recursividad
+   -Metodo: Se creo una constante que recibe como parametro un numero
+   Aplicamos condicionales para que los datos a trabajar sean exclusivamente numeros, o BigInt y luego para que solo sean enteros. Un tercero para que 0 siempre devuelva 1, ya que ese es su valor factorial.
+   Aplicamos la constante que recibia nuestros numeros y los convertia en BigInts, multiplicandola por la misma funcion -1 para factorializar, luego la guardamos en una constante almacenadora del resultado, y la retornamos. Se aplico un test.
