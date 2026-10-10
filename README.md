@@ -42,3 +42,10 @@ Dejo explicacion breve de cada ejercicio, lo aplicado y lo aprendido en el.
    -Objetivo: crear un sistema que reciba 2 cadenas, y devuelva 2 cadenas distintas, la primera con los datos que esten en 1 pero NO en 2, y la segunda con los que esten en 2 pero NO en 1.
    -Metodo: Creamos una funcion que recibira 2 parametros, nuestras cadenas de texto. Creamos 2 const contenedoras que recibiran en un array a travez de spread nuestras cadenas. 2 let temporales vacias que seran el resultado del filtrado. y 2 const en set, que recibiran un parametro, para poder aplicar metodos de set y filtrar con menor rendimiento de memoria aplicando has en vez de includes.
    Recorremos nuestro primer array con un for of, y aplicamos un if donde si nuestro set 2 NO tiene el valor actual del caracter, lo suma a resultStr1, aplicando la misma logica a la inversa en el segundo for of, le sumamos los valores a resultStr2, conteniendo asi, resultStr1 el filtrado de la primer cadena, y resultStr2 el resultado de la segunda. Retornamos ambos a la vez en un array. Al inal y fuera de nuestra funcion, una constante con out1 y out2 para ambos resultados de forma mas legible, que llama a nuestra funcion y le pasa ambas cadenas como modelo de prueba.
+
+7. Palindrome #13
+   -Objetivo: Detectar con true o false palindromos, incluso cuando tengan espacios, comas "," o tildes.
+   -Metodo: Funcion que recibe parametro el string a analizar. Datos que no sean string son catalogados como error.
+   Se crea una constante que limpia el texto de: diferenciar mayusculas, de signos sobre las letras utilizando normalize(NFD) y el replace para lo que resulte, luego Replace para "," "." y espacios vacios.
+   Una vez el texto este limpio, se guarda en una constante contenedora, usando un spread de la constante trabajada, se invierte el orden de los caracteres individuales, y se juntan con join en un string.
+   Para luego compararse en el return y en caso de ser iguales conseguir el true y de ser distintos false. Llamamos a 2 ejemplos y tambien aplicamos un jest.

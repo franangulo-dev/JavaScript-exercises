@@ -38,14 +38,13 @@ let comparator = function (word1, word2) {
   for (let letra in container) {
     if (container[letra] !== container2[letra]) {
       return false;
-    } 
+    }
   }
-  return true
+  return true;
 };
-console.log(comparator("argentina", "rageanitn"))
-console.log(comparator("juventus","inter"))
-console.log(comparator("milanesa","milanesa"))
-
+comparator("argentina", "rageanitn");
+comparator("juventus", "inter");
+comparator("milanesa", "milanesa");
 
 /*
 agrego comparacion de mi codigo y la solucion de brais que es quien plantea el problema
