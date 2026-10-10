@@ -9,7 +9,6 @@
  *   https://es.wikipedia.org/wiki/Código_morse.
  */
 
-
 // --NOTA IMPORTANTE: Este ejercicio esta semi resuelto, y quedara pendiente a modificaciones del primer filtro
 // isMorse, que tiene una falla conceptual, en la cual filtraria cualquir texto regular que contenga '.' o '-' como codigo morse
 //El README tambien queda pendiente
@@ -70,7 +69,7 @@ alphabetSwitch.forEach((pair) => {
 });
 
 const morseTranslator = function (text) {
-  const isMorse = text.includes("-") || text.includes(".");
+  const isMorse = /^[\-\. ]+$/.test(text);
   if (isMorse) {
     const morseWords = text.split("  ");
     const translatedWords = morseWords.map((morseWord) => {
@@ -94,5 +93,7 @@ const morseTranslator = function (text) {
     return wordsInMorse.join("  ");
   }
 };
-console.log(morseTranslator("hola, mundo"));
-console.log(morseTranslator(".... --- .-.. .- --..--  -- ..- -. -.. ---"));
+morseTranslator("hola, mundo");
+morseTranslator(".... --- .-.. .- --..--  -- ..- -. -.. ---");
+
+module.exports = morseTranslator

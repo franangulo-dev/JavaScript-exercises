@@ -31,7 +31,12 @@ Dejo explicacion breve de cada ejercicio, lo aplicado y lo aprendido en el.
 
 4. morse-code #10
    -Objetivo: crear un traductor que reciba texto comun y lo transforme a codigo morse, y vice-versa
-   -Metodo: La logica esta terminada y funcionando, pero tiene un fallo en que el filtro podria tomar textos regulares que contengan '.' o '-' como codigo morse, por lo cual el codigo quedara pendiente a modificaciones y tambien este readme
+   -Metodo: Se crea un objeto con key la letra o signo del abecedario regular, y value su equivalente en morse.
+   se crea una constante "alphabetSwitch"sobre la cual al pasarlo a array podremos trabajar los datos de dicho objeto. Y otra constante "regularAlphabet", como objeto vacio que recibira los datos trabajados.
+   Utilizamos un forEach para recorrer cada key y value como valores de un array de arrays. y luego asignandolos a nuestro objeto vacio.
+   Luego creamos una funcion, que recibira nuestro texto como parametro, donde una constante que servira de filtro, a traves de una regEx que detecta si se tiene SOLO "." "-" o " " si se cumple esta condicion, primero almacenara las palabras en morse separandolas por " " y recorrera las palabras separando las letras por " ". luego las retorna en nuestro regularAlphabet como caracteres que luego unira con join "" para letras, y " " para palabras completando asi su transformacion.
+   Else recibe el texto y lo limpia a todas minusculas, separa las palabras con " ", recorre las palabras y separa las letras con "" luego deposita las letras en morseAlphabet recorriendo las letras y retornandolas en su lugar, luego las une en letras morse con join " " y en palabras en morse con join " "
+   Llamamos a sus respectivos ejemplos y aplicamos un test.
 
 5. balanced-expresions #11
    -Objetivo: Crear un programa que detecte si la apertura y el cierre dentro de una expresion estan equilibrados ej: () {} o [] en orden
