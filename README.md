@@ -1,6 +1,6 @@
 # Retos de Programación - JavaScript & Node.js
 
-Saludos! Mi nombre es **Francisco Angulo** y este repositorio es una muestra de mis ejercicios de entrenamiento...
+Saludos! Mi nombre es **Francisco Angulo** y este repositorio es una muestra de mis ejercicios de entrenamiento, enfocado para Full Stack con prioridad de Backend...
 
 ## 🧠 Mi Filosofía de Aprendizaje
 
@@ -60,3 +60,11 @@ Dejo explicacion breve de cada ejercicio, lo aplicado y lo aprendido en el.
    -Metodo: Se creo una constante que recibe como parametro un numero
    Aplicamos condicionales para que los datos a trabajar sean exclusivamente numeros, o BigInt y luego para que solo sean enteros. Un tercero para que 0 siempre devuelva 1, ya que ese es su valor factorial.
    Aplicamos la constante que recibia nuestros numeros y los convertia en BigInts, multiplicandola por la misma funcion -1 para factorializar, luego la guardamos en una constante almacenadora del resultado, y la retornamos. Se aplico un test.
+
+9. how-many-days #15
+-Objetivo: Saber cuantos dias de diferencia existen entre una fecha y otra, independientemenete del orden
+-Metodo: Declaramos una funcion, que recibe 2 fechas en formato string. El primer filtro es una regEx que analiza de principio a fin el string, y detecta que tenga la cantidad de caracteres y el orden correcto y separado por / (DD/MM/YYYY).
+El segundo filtro es un condicional que testea la regex en ambos strings, dejando un error si el formato no coincide.
+Declaramos una variable para ordenar los datos separandolos individualmente con split("/") y almacenarlos en day month y year, respectivamente y replicado para ambos strings, el -1 de month es para que el indice 0 coincida con el mes 1. 
+El siguiente condicional, con get day compara si coincide el valor en caso de que se modifique automaticamente por javascript, con el valor depositado en day1 o day2, al igual que hace getMonth y getFullYear respectivamente, si no coincide cualquiera de estos, por eso usamos el ||, lanzara un error. 
+La siguiente variable miliSecondDiff compara first date con second date, luego dividimos los mili segundos con dayDifference, por mil para tener segundos, por 60 para tener minutos, por 60 para tener horas, y finalmente por 24 para tener dias, luego Math.abs lo convierte en absoluto, ni negativo ni positivo se vera discriminado. Lo retornamos y asi tenemos el resultado completo en dias. Se aplico un jest para testear la correcta funcionalidad.
