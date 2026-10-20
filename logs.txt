@@ -1,0 +1,9 @@
+[2026-10-15 08:30:12] INFO: Solicitud entrante a /v1/users
+[2026-10-15 08:31:45] ERROR_500: Falló la conexión con la base de datos
+[2026-10-15 08:32:01] INFO: Intento de login desde IP 192.168.1.50
+[2026-10-15 08:32:05] UNAUTHORIZED_401: Token vencido o inválido
+[2026-10-15 08:35:00] INFO: Reporte de ventas generado con éxito
+[2026-10-15 08:36:12] ERROR_500: El servicio de pagos no responde (Timeout)
+[2026-10-15 08:40:22] INFO: Usuario fran logout exitoso
+[2026-10-15 08:42:10] UNAUTHORIZED_401: Intento de acceso a /admin sin permisos
+[2026-10-15 08:45:00] INFO: Tarea programada (Cron Job) ejecutada

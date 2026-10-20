@@ -62,13 +62,29 @@ Dejo explicacion breve de cada ejercicio, lo aplicado y lo aprendido en el.
    Aplicamos la constante que recibia nuestros numeros y los convertia en BigInts, multiplicandola por la misma funcion -1 para factorializar, luego la guardamos en una constante almacenadora del resultado, y la retornamos. Se aplico un test.
 
 9. how-many-days #15
--Objetivo: Saber cuantos dias de diferencia existen entre una fecha y otra, independientemenete del orden
--Metodo: Declaramos una funcion, que recibe 2 fechas en formato string. El primer filtro es una regEx que analiza de principio a fin el string, y detecta que tenga la cantidad de caracteres y el orden correcto y separado por / (DD/MM/YYYY).
-El segundo filtro es un condicional que testea la regex en ambos strings, dejando un error si el formato no coincide.
-Declaramos una variable para ordenar los datos separandolos individualmente con split("/") y almacenarlos en day month y year, respectivamente y replicado para ambos strings, el -1 de month es para que el indice 0 coincida con el mes 1. 
-El siguiente condicional, con get day compara si coincide el valor en caso de que se modifique automaticamente por javascript, con el valor depositado en day1 o day2, al igual que hace getMonth y getFullYear respectivamente, si no coincide cualquiera de estos, por eso usamos el ||, lanzara un error. 
-La siguiente variable miliSecondDiff compara first date con second date, luego dividimos los mili segundos con dayDifference, por mil para tener segundos, por 60 para tener minutos, por 60 para tener horas, y finalmente por 24 para tener dias, luego Math.abs lo convierte en absoluto, ni negativo ni positivo se vera discriminado. Lo retornamos y asi tenemos el resultado completo en dias. Se aplico un jest para testear la correcta funcionalidad.
+   -Objetivo: Saber cuantos dias de diferencia existen entre una fecha y otra, independientemenete del orden
+   -Metodo: Declaramos una funcion, que recibe 2 fechas en formato string. El primer filtro es una regEx que analiza de principio a fin el string, y detecta que tenga la cantidad de caracteres y el orden correcto y separado por / (DD/MM/YYYY).
+   El segundo filtro es un condicional que testea la regex en ambos strings, dejando un error si el formato no coincide.
+   Declaramos una variable para ordenar los datos separandolos individualmente con split("/") y almacenarlos en day month y year, respectivamente y replicado para ambos strings, el -1 de month es para que el indice 0 coincida con el mes 1.
+   El siguiente condicional, con get day compara si coincide el valor en caso de que se modifique automaticamente por javascript, con el valor depositado en day1 o day2, al igual que hace getMonth y getFullYear respectivamente, si no coincide cualquiera de estos, por eso usamos el ||, lanzara un error.
+   La siguiente variable miliSecondDiff compara first date con second date, luego dividimos los mili segundos con dayDifference, por mil para tener segundos, por 60 para tener minutos, por 60 para tener horas, y finalmente por 24 para tener dias, luego Math.abs lo convierte en absoluto, ni negativo ni positivo se vera discriminado. Lo retornamos y asi tenemos el resultado completo en dias. Se aplico un jest para testear la correcta funcionalidad.
 
 10. async-management #16
--Objetivo: Identificar si el ID de un usuario es correcto (del 1 al 100) 
--Metodo: Se crea una funcion que recibe el ID a analizar (ficticio, no se trae de ninguna base de datos) la resolucion es a travez de retornar una promesa, la cual rechaza si el id es mayor a 100 o menor que uno, el setTimeout simula 2 segundos de busqueda. En caso de ser correcto resuelve el objeto simulado que tiene un id, nombre, y role. La segunda funcion es asincronica para poder manejar los tiempos de espera, donde metemos el resultado del try en una constante, llamando a nuestro user con su id, y devolvemos la constante contenedora. declaramos el catch para dar el mensaje de error en caso de no ser valido, se le aplico un test.
+    -Objetivo: Identificar si el ID de un usuario es correcto (del 1 al 100)
+    -Metodo: Se crea una funcion que recibe el ID a analizar (ficticio, no se trae de ninguna base de datos) la resolucion es a travez de retornar una promesa, la cual rechaza si el id es mayor a 100 o menor que uno, el setTimeout simula 2 segundos de busqueda. En caso de ser correcto resuelve el objeto simulado que tiene un id, nombre, y role. La segunda funcion es asincronica para poder manejar los tiempos de espera, donde metemos el resultado del try en una constante, llamando a nuestro user con su id, y devolvemos la constante contenedora. declaramos el catch para dar el mensaje de error en caso de no ser valido, se le aplico un test.
+
+11. URL-extractor #17
+    -Objetivo: Crear una funcion que reciba una URL (inventada) y filtre sus datos
+    -Metodo: Se crea una funcion que recibe como parametro una URL, se filtra segun si esta incompleta o le falta el comienzo de la separacion de los datos. En ese caso lanza una excepcion.
+    En caso de funcionar, se crea una variable que recibe los datos de la url para poder manejarlos, luego una variable que almacenara el resultado de cortar en la primera separacion "?" luego se filtra la segunda mitad, donde estan los datos (indice 1), y se vuelve a filtrar usando split para la separacion "&".
+    Se crea un objeto que almacenara los datos del usuario una vez limpios, para filtrar se recorre el array con forEach, y a cada elemento lo ubicamos en otra varaible luego de aplicarle el split "=" y lo almacenamos en el objeto usando el indice de cada parte, asignandolo a clave o valor. Se retorna el objeto al final del proceso. Se le aplica un test
+
+12. file-processor #18
+-Objetivo: Crear un script que interactue con archivos del disco rigido, en este caso leyendo texto plano y contabilizando errores
+-Metodo: Se invoca a require("fs").promises y se almacena en 2 constantes sus funciones readFile y writeFile para poder leer y escribir archivos. 
+Se crea una funcion que recibe texto como parametro, dentro una constante que tendra el contador de errores. Luego una variable que almacenara las lineas despues de separarlas individualmente en el texto. 
+Se crea un bucle que recorrera cada una de esas lineas, con los condicionales de que si incluye (includes) "ERROR_500" o "UNAUTHORIZED_401" lo sume al contador (report) y luego retorne el resultado. 
+Luego se crea una funcion asincrona, que en el try, llamara al archivo "./logs.txt" previamente creado, con el filtro de lenguaje "utf-8" a traves de readfile. Depositandolo en la constante text. 
+Se guardara la ejecucion de la funcion anterior sobre el archivo almacenado en text, dentro de una nueva constante "reportContainer"
+Luego writeFile, creara un JSON, aplicandole .stringify al anterior mencionado resultado en reportContainer. 
+En caso de errores, nuestro catch muestra por consola un mensaje de error. Se aplica un testing. 
