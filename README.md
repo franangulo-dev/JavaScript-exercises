@@ -38,9 +38,9 @@ Dejo explicacion breve de cada ejercicio, lo aplicado y lo aprendido en el.
    Else recibe el texto y lo limpia a todas minusculas, separa las palabras con " ", recorre las palabras y separa las letras con "" luego deposita las letras en morseAlphabet recorriendo las letras y retornandolas en su lugar, luego las une en letras morse con join " " y en palabras en morse con join " "
    Llamamos a sus respectivos ejemplos y aplicamos un test.
 
-5. balanced-expresions #11
+5. balanced-expressions #11
    -Objetivo: Crear un programa que detecte si la apertura y el cierre dentro de una expresion estan equilibrados ej: () {} o [] en orden
-   -Metodo: Se creo una funcion, con parametro la expresion a analizar. Que a traves de un array contenedor, que almacenara nuestros abridores `( { o [`. El primer condicional filtra expresiones vacias, luego un bucle recorre la expresion metiendo los abridores dentro del conenedor en el ult indice con .push, el segundo condicional recibira los cierres `] } o )` y los comparara con los abridores, usando una constante que los recogera para luego borrarlos usando .pop, si el valor de cierre NO coincide con el abridor, devuelve falso. por ultimo fuera de estos condicionales filtramos el length del contenedor el cual deberia ser 0 si el proceso se completo correctamente o false si quedo algun abridor pendiente, eso nos dara el resultado true o false cuando pasemos la expresion.
+   -Metodo: Se creo una funcion, con parametro la expresion a analizar. Que a traves de un array contenedor, que almacenara nuestros abridores `( { o [`. El primer condicional filtra expresiones vacias, luego un bucle recorre la expresion metiendo los abridores dentro del contenedor en el ult indice con .push, el segundo condicional recibira los cierres `] } o )` y los comparara con los abridores, usando una constante que los recogera para luego borrarlos usando .pop, si el valor de cierre NO coincide con el abridor, devuelve falso. por ultimo fuera de estos condicionales filtramos el length del contenedor el cual deberia ser 0 si el proceso se completo correctamente o false si quedo algun abridor pendiente, eso nos dara el resultado true o false cuando pasemos la expresion.
    -Metodo 2: se utilizo un segundo metodo procesando los datos de un objeto con clave y valor usando la misma tecnica de comparacion, con valor2 para recorrer y comparar valores y claves
 
 6. Deleting-Characters #12
@@ -88,3 +88,14 @@ Luego se crea una funcion asincrona, que en el try, llamara al archivo "./logs.t
 Se guardara la ejecucion de la funcion anterior sobre el archivo almacenado en text, dentro de una nueva constante "reportContainer"
 Luego writeFile, creara un JSON, aplicandole .stringify al anterior mencionado resultado en reportContainer. 
 En caso de errores, nuestro catch muestra por consola un mensaje de error. Se aplica un testing. 
+
+13. vending-machine #19
+-Objetivo: Simular una maquina expendedora, que devuelva el producto y el cambio en la menor cantidad de moneas posible. Y errores correspondientes a mal uso.
+-Metodo: Se crea una constante con el tipo de monedas validas.
+Se crea un objeto con nuestros productos: nombre, indice y su precio.
+Se crea la maquina en una funcion que recibe como parametros el dinero que metera el usuario, y el indice de producto. Se crea una variable para operar el dinero del usuario. Se crea una constante que simplifica trabajar con el indice del producto. Y se crea una varaiable que sera el cambio que se devuelva una vez realizada la operacion.
+El filtro para moneda incorrecta, es un bucle, que recorre cash, y si no encuentra el valor, en coins, la lista de monedas validas, devuelve un mensaje y el dinero que ingreso como estaba. Caso contrario suma el valor a userMoney, y sigue la operacion.
+El filtro para productos inexistentes, si el producto da undefined, devuelve un mensaje y el dinero que ingreso como estaba.
+El filtro para dinero insuficiente, compara el dinero del usuario y si es menor al precio del producto, devuelve un mensaje y el dinero como estaba.
+Una vez pasados los filtros, se opera restando del dinero ingresado el precio del producto. Se coloca en una variable. Luego se crea un bucle, que recorrera las monedas validas, mientras el resultado (dinero menos precio) sea mayor o igual al valor de las monedas, se restan los valores y se asignan de nuevo al resultado. Y se acumulan en change, para asi dejar la deuda en 0 y sumar las monedas mas grandes a nuestro cambio. 
+Se crea un objeto con el resultado de la compra exitosa, devolviendo el nombre del producto, y el cambio actualizado. Se aplicaron test.

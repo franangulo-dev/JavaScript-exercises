@@ -1,4 +1,4 @@
-const packageChecker = require("./11-balanced-expresions");
+const packageChecker = require("./11-balanced-expressions");
 
 test("Una expresion ordenada correctamente debe ser true", () => {
   expect(packageChecker("{ [ a * ( c + d ) ] - 5 }")).toBe(true);
