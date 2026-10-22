@@ -59,9 +59,9 @@ const vendingMachine = function (cash, prod) {
   };
   return correctPurchase;
 };
-console.log(vendingMachine([100, 100], 9));
-console.log(vendingMachine([600], 1));
-console.log(vendingMachine([50], 1));
-console.log(vendingMachine([10], 4));
+vendingMachine([100, 100], 9)
+vendingMachine([600], 1)
+vendingMachine([200], 1)
+vendingMachine([10], 4)
 
 module.exports = vendingMachine
