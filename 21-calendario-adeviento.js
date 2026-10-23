@@ -16,14 +16,19 @@
  *   y se eliminará del listado.
  * - Si seleccionas salir, el programa finalizará.
  */
+const {
+  drawStarter,
+  showParticipantList,
+  deleteParticipant,
+  addParticipant,
+  participantList,
+} = require("./21-participants");
 
 const readline = require("readline");
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
-
-const participantList = new Set();
 
 function askEntry(entry) {
   return new Promise((resolve) => {
@@ -32,37 +37,6 @@ function askEntry(entry) {
     });
   });
 }
-
-const addParticipant = function (name) {
-  if (participantList.has(name)) {
-    console.warn("El nombre ya existe");
-  }
-  participantList.add(name);
-};
-
-const deleteParticipant = function (name) {
-  if (!participantList.has(name)) {
-    console.warn("Usuario no existente");
-  }
-  if (participantList.has(name)) {
-    participantList.delete(name);
-    console.warn("Usuario eliminado");
-  }
-};
-
-const showParticipantList = function () {
-  console.log(participantList);
-};
-
-const drawStarter = function () {
-  let arrayList = Array.from(participantList);
-  let winnerUser = [];
-  let randomUserIndex = Math.floor(Math.random() * arrayList.length);
-  let randomUserNumber = arrayList[randomUserIndex];
-  winnerUser.push(randomUserNumber);
-  console.warn(winnerUser);
-  participantList.delete(randomUserNumber);
-};
 
 async function mainMenu() {
   while (true) {
@@ -79,7 +53,7 @@ async function mainMenu() {
     }
     if (option === "3") {
       console.log("Lista de participantes: ");
-      showParticipantList(true);
+      showParticipantList();
     }
     if (option === "4") {
       console.log("TENEMOS UN GANADOR!");
