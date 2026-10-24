@@ -80,31 +80,36 @@ Dejo explicacion breve de cada ejercicio, lo aplicado y lo aprendido en el.
     Se crea un objeto que almacenara los datos del usuario una vez limpios, para filtrar se recorre el array con forEach, y a cada elemento lo ubicamos en otra varaible luego de aplicarle el split "=" y lo almacenamos en el objeto usando el indice de cada parte, asignandolo a clave o valor. Se retorna el objeto al final del proceso. Se le aplica un test
 
 12. file-processor #18
--Objetivo: Crear un script que interactue con archivos del disco rigido, en este caso leyendo texto plano y contabilizando errores
--Metodo: Se invoca a require("fs").promises y se almacena en 2 constantes sus funciones readFile y writeFile para poder leer y escribir archivos. 
-Se crea una funcion que recibe texto como parametro, dentro una constante que tendra el contador de errores. Luego una variable que almacenara las lineas despues de separarlas individualmente en el texto. 
-Se crea un bucle que recorrera cada una de esas lineas, con los condicionales de que si incluye (includes) "ERROR_500" o "UNAUTHORIZED_401" lo sume al contador (report) y luego retorne el resultado. 
-Luego se crea una funcion asincrona, que en el try, llamara al archivo "./logs.txt" previamente creado, con el filtro de lenguaje "utf-8" a traves de readfile. Depositandolo en la constante text. 
-Se guardara la ejecucion de la funcion anterior sobre el archivo almacenado en text, dentro de una nueva constante "reportContainer"
-Luego writeFile, creara un JSON, aplicandole .stringify al anterior mencionado resultado en reportContainer. 
-En caso de errores, nuestro catch muestra por consola un mensaje de error. Se aplica un testing. 
+    -Objetivo: Crear un script que interactue con archivos del disco rigido, en este caso leyendo texto plano y contabilizando errores
+    -Metodo: Se invoca a require("fs").promises y se almacena en 2 constantes sus funciones readFile y writeFile para poder leer y escribir archivos.
+    Se crea una funcion que recibe texto como parametro, dentro una constante que tendra el contador de errores. Luego una variable que almacenara las lineas despues de separarlas individualmente en el texto.
+    Se crea un bucle que recorrera cada una de esas lineas, con los condicionales de que si incluye (includes) "ERROR_500" o "UNAUTHORIZED_401" lo sume al contador (report) y luego retorne el resultado.
+    Luego se crea una funcion asincrona, que en el try, llamara al archivo "./logs.txt" previamente creado, con el filtro de lenguaje "utf-8" a traves de readfile. Depositandolo en la constante text.
+    Se guardara la ejecucion de la funcion anterior sobre el archivo almacenado en text, dentro de una nueva constante "reportContainer"
+    Luego writeFile, creara un JSON, aplicandole .stringify al anterior mencionado resultado en reportContainer.
+    En caso de errores, nuestro catch muestra por consola un mensaje de error. Se aplica un testing.
 
 13. vending-machine #19
--Objetivo: Simular una maquina expendedora, que devuelva el producto y el cambio en la menor cantidad de moneas posible. Y errores correspondientes a mal uso.
--Metodo: Se crea una constante con el tipo de monedas validas.
-Se crea un objeto con nuestros productos: nombre, indice y su precio.
-Se crea la maquina en una funcion que recibe como parametros el dinero que metera el usuario, y el indice de producto. Se crea una variable para operar el dinero del usuario. Se crea una constante que simplifica trabajar con el indice del producto. Y se crea una varaiable que sera el cambio que se devuelva una vez realizada la operacion.
-El filtro para moneda incorrecta, es un bucle, que recorre cash, y si no encuentra el valor, en coins, la lista de monedas validas, devuelve un mensaje y el dinero que ingreso como estaba. Caso contrario suma el valor a userMoney, y sigue la operacion.
-El filtro para productos inexistentes, si el producto da undefined, devuelve un mensaje y el dinero que ingreso como estaba.
-El filtro para dinero insuficiente, compara el dinero del usuario y si es menor al precio del producto, devuelve un mensaje y el dinero como estaba.
-Una vez pasados los filtros, se opera restando del dinero ingresado el precio del producto. Se coloca en una variable. Luego se crea un bucle, que recorrera las monedas validas, mientras el resultado (dinero menos precio) sea mayor o igual al valor de las monedas, se restan los valores y se asignan de nuevo al resultado. Y se acumulan en change, para asi dejar la deuda en 0 y sumar las monedas mas grandes a nuestro cambio. 
-Se crea un objeto con el resultado de la compra exitosa, devolviendo el nombre del producto, y el cambio actualizado. Se aplicaron test.
+    -Objetivo: Simular una maquina expendedora, que devuelva el producto y el cambio en la menor cantidad de moneas posible. Y errores correspondientes a mal uso.
+    -Metodo: Se crea una constante con el tipo de monedas validas.
+    Se crea un objeto con nuestros productos: nombre, indice y su precio.
+    Se crea la maquina en una funcion que recibe como parametros el dinero que metera el usuario, y el indice de producto. Se crea una variable para operar el dinero del usuario. Se crea una constante que simplifica trabajar con el indice del producto. Y se crea una varaiable que sera el cambio que se devuelva una vez realizada la operacion.
+    El filtro para moneda incorrecta, es un bucle, que recorre cash, y si no encuentra el valor, en coins, la lista de monedas validas, devuelve un mensaje y el dinero que ingreso como estaba. Caso contrario suma el valor a userMoney, y sigue la operacion.
+    El filtro para productos inexistentes, si el producto da undefined, devuelve un mensaje y el dinero que ingreso como estaba.
+    El filtro para dinero insuficiente, compara el dinero del usuario y si es menor al precio del producto, devuelve un mensaje y el dinero como estaba.
+    Una vez pasados los filtros, se opera restando del dinero ingresado el precio del producto. Se coloca en una variable. Luego se crea un bucle, que recorrera las monedas validas, mientras el resultado (dinero menos precio) sea mayor o igual al valor de las monedas, se restan los valores y se asignan de nuevo al resultado. Y se acumulan en change, para asi dejar la deuda en 0 y sumar las monedas mas grandes a nuestro cambio.
+    Se crea un objeto con el resultado de la compra exitosa, devolviendo el nombre del producto, y el cambio actualizado. Se aplicaron test.
 
 14. trick-treat #20
--Objetivo: Programa que segun indiquemos "trick" devuelva una cantidad de sustos, y "treat" caramelos, respectivamente. Segun edad, altura y longitud del nombre, cada uno con sus operaciones.
--Metodo: Primero creamos 2 contenedores, uno de sustos, y otro de caramelos. Seguido de una lista de nombres.
-Creamos la funcion que recibira parametro decision para trick/treat, parametro list para nuestros nombres.
-3 variables, 1 para almacenar caramelos, otra para sustos, y otra para el total de altura.
-El primer filtro es tirar un error en caso de que no se use treat ni trick.
-Luego accionamos el mecanismo para trick, que recorre la lista con forEach, sumando al contenedor de sustos, 1 susto cada 2 letras, con mathFloor para redondear el resultado despues de dividir name.length por 2. Luego filtramos que la edad sea par usando modulo, para asi agregar 2 caramelos por persona. Sumamos las alturas totales, y dividiendo por 100cm, agregamos por 3 sustos mas, usando math.floor para redondear.
-Metemos los sustos que se retornaran en finalScares con un bucle for, que utiliza math random por scares.lenght nos asegura un susto random entre la cantidad de sustos disponibles, los guardamos en variables temporales para manejar los datos y los dejamos en finalScares. Repetimos condicional y forEach pero aplicamos matematica para los caramelos. Un caramelo por letra del nombre, con name.length. Limitando la edad a 10 por persona con math.min, metiendo el resultado en limitedAge agregando un caramelo cada 3 personas dividiendo la anterior variable. Aplicamos mismo limite pero de 150cm para person.height agregando asi 2 caramelos x cada 50cm. Aplicamos el mismo for of depositando caramelos en un contenedor final de candys, y por ultimo llamamos a nuestra funcion. Se aplicaron test.
+    -Objetivo: Programa que segun indiquemos "trick" devuelva una cantidad de sustos, y "treat" caramelos, respectivamente. Segun edad, altura y longitud del nombre, cada uno con sus operaciones.
+    -Metodo: Primero creamos 2 contenedores, uno de sustos, y otro de caramelos. Seguido de una lista de nombres.
+    Creamos la funcion que recibira parametro decision para trick/treat, parametro list para nuestros nombres.
+    3 variables, 1 para almacenar caramelos, otra para sustos, y otra para el total de altura.
+    El primer filtro es tirar un error en caso de que no se use treat ni trick.
+    Luego accionamos el mecanismo para trick, que recorre la lista con forEach, sumando al contenedor de sustos, 1 susto cada 2 letras, con mathFloor para redondear el resultado despues de dividir name.length por 2. Luego filtramos que la edad sea par usando modulo, para asi agregar 2 caramelos por persona. Sumamos las alturas totales, y dividiendo por 100cm, agregamos por 3 sustos mas, usando math.floor para redondear.
+    Metemos los sustos que se retornaran en finalScares con un bucle for, que utiliza math random por scares.lenght nos asegura un susto random entre la cantidad de sustos disponibles, los guardamos en variables temporales para manejar los datos y los dejamos en finalScares. Repetimos condicional y forEach pero aplicamos matematica para los caramelos. Un caramelo por letra del nombre, con name.length. Limitando la edad a 10 por persona con math.min, metiendo el resultado en limitedAge agregando un caramelo cada 3 personas dividiendo la anterior variable. Aplicamos mismo limite pero de 150cm para person.height agregando asi 2 caramelos x cada 50cm. Aplicamos el mismo for of depositando caramelos en un contenedor final de candys, y por ultimo llamamos a nuestra funcion. Se aplicaron test.
+
+15. Calendario de Adviento #21 (Avanzado)
+    - Objetivo: Migrar una lógica de sorteo de consola a una API REST funcional con Express y asegurar su comportamiento con tests.
+    - Método: Se utilizó Express para exponer endpoints HTTP (`GET`, `POST`, `DELETE`), implementando códigos de estado (`201`, `400`, `200`) y validaciones para evitar duplicados en un `Set`. Se testeo la lógica con Jest y se validó en usando Thunder Client.
+      Este ejercicio es el punto de quiebre para pasar de logica de consola aislada, a express, y cambio a un nuevo repositorio.
